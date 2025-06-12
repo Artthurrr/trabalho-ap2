@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulador de Investimentos</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <h1>InvestSimulador</h1>
+    <nav>
+      <ul>
+        <li><a href="#simulador">Simular</a></li>
+        <li><a href="#dados-economicos">Dados Econômicos</a></li>
+        <li><a href="#investimentos">Investimentos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="intro">
+      <h2>Encontre o melhor investimento para você</h2>
+      <p>Com base em seu perfil, simule e compare os investimentos mais adequados.</p>
+    </section>
+
+    <section id="simulador">
+      <article>
+        <h2>Questionário de Perfil</h2>
+        <div class="slide">
+          <label for="idade">Qual sua idade?</label>
+          <input type="number" id="idade" name="idade" placeholder="Ex: 30">
+
+          <label for="valor">Valor Inicial</label>
+          <input type="number" id="valor" name="valor" placeholder="Ex: 10000">
+
+          <label for="tipoInvest">Tipo de Investimento</label>
+          <select id="tipoInvest">
+            <option value="rendaFixa">Renda Fixa</option>
+            <option value="rendaVariavel">Renda Variável</option>
+            <option value="cripto">Renda informal</option>
+          </select>
+        </div>
+
+        <button id="verResultado">Ver Resultado</button>
+
+        <div id="relatorio" class="hidden">
+          <h3>Relatório de Investimentos</h3>
+          <p>Retornos esperados, riscos, tipos de investimento.</p>
+          <div id="grafico"></div>
+        </div>
+      </article>
+    </section>
+
+    <section id="dados-economicos">
+      <h2>Dados Econômicos</h2>
+      <div id="tabelaEconomica"></div>
+    </section>
+
+    <section id="investimentos">
+      <h2>Investimentos</h2>
+      <div id="tabelaInvestimentos"></div>
+    </section>
+
+    <section id="contato">
+      <h2>Fale Conosco</h2>
+      <form id="formContato">
+        <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+        <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+        <textarea id="mensagem" name="mensagem" placeholder="Sua mensagem" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-section">
+      <h4>Sobre</h4>
+      <p>Somos especialistas em análise de investimentos personalizados.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Links</h4>
+      <ul>
+        <li><a href="#">Política de Privacidade</a></li>
+        <li><a href="#">Termos de Uso</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Siga-nos</h4>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <div class="footer-section">
+      <p>&copy; 2025 InvestSimulador. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>
