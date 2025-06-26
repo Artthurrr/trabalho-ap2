@@ -76,7 +76,122 @@
     </section>
   </main>
 
-  <footer>
+  
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Investimentos</title>
+  <style>
+    table, th, td {
+      border: 1px solid #ccc;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px;
+    }
+    #filtro-investimentos {
+      margin-bottom: 10px;
+      padding: 6px;
+      width: 250px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Campo de filtro -->
+  <input
+    type="text"
+    id="filtro-investimentos"
+    placeholder="Buscar por nome..."
+  />
+
+  <!-- Tabela de investimentos -->
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Tipo</th>
+        <th>Rentabilidade</th>
+      </tr>
+    </thead>
+    <tbody id="tabela-investimentos">
+      <!-- Conteúdo gerado dinamicamente -->
+    </tbody>
+  </table>
+
+  <script>
+    // Simulação de dados da API 
+    const investimentos = [
+      { nome: "Tesouro Selic", tipo: "Renda Fixa", rentabilidade: "12,25%" },
+      { nome: "Ações Petrobras", tipo: "Renda Variável", rentabilidade: "18,30%" },
+      { nome: "CDB Banco XP", tipo: "Renda Fixa", rentabilidade: "12,00%" },
+      { nome: "FII XP Malls", tipo: "Fundo Imobiliário", rentabilidade: "9,00%" }
+    ];
+
+    const tabela = document.getElementById("tabela-investimentos");
+    const inputFiltro = document.getElementById("filtro-investimentos");
+
+    // Função para renderizar a tabela
+    function renderTabela(dados) {
+      tabela.innerHTML = ""; 
+
+      if (dados.length === 0) {
+        const linha = document.createElement("tr");
+        const celula = document.createElement("td");
+        celula.colSpan = 3;
+        celula.textContent = "Nenhum resultado encontrado.";
+        celula.style.textAlign = "center";
+        linha.appendChild(celula);
+        tabela.appendChild(linha);
+        return;
+      }
+
+      dados.forEach(item => {
+        const linha = document.createElement("tr");
+
+        const tdNome = document.createElement("td");
+        tdNome.textContent = item.nome;
+
+        const tdTipo = document.createElement("td");
+        tdTipo.textContent = item.tipo;
+
+        const tdRentabilidade = document.createElement("td");
+        tdRentabilidade.textContent = item.rentabilidade;
+
+        linha.appendChild(tdNome);
+        linha.appendChild(tdTipo);
+        linha.appendChild(tdRentabilidade);
+
+        tabela.appendChild(linha);
+      });
+    }
+
+    // Evento de filtro
+    inputFiltro.addEventListener("input", () => {
+      const termo = inputFiltro.value.trim().toLowerCase();
+
+      if (termo === "") {
+        renderTabela(investimentos);
+        return;
+      }
+
+      const resultados = investimentos.filter(item =>
+        item.nome.toLowerCase().includes(termo)
+      );
+
+      renderTabela(resultados);
+    });
+
+    // Renderiza a tabela inicialmente com todos os dados
+    renderTabela(investimentos);
+  </script>
+</body> 
+</html>
+
+<footer>
     <div class="footer-section">
       <h4>Sobre</h4>
       <p>Somos especialistas em análise de investimentos personalizados.</p>
@@ -98,5 +213,4 @@
       <p>&copy; 2025 InvestSimulador. Todos os direitos reservados.</p>
     </div>
   </footer>
-</body>
-</html>
+  
